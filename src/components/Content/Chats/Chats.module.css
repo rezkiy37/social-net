@@ -1,0 +1,10 @@
+.chats {
+    min-height: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 3fr);
+    grid-template-areas: 
+    'chatsBar chatsWindow chatsWindow chatsWindow';
+
+    background-color: rgb(28, 121, 75);
+}

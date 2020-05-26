@@ -1,0 +1,27 @@
+.chatsWindow {
+    height: 80vh;
+    font-size: 50px;
+
+    overflow-y: scroll;
+
+    grid-area: chatsWindow;
+}
+
+.chatsWindow::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chatsWindow::-webkit-scrollbar-track {
+    background: #ccc;
+}
+
+.chatsWindow::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #000;
+    border: 2px solid #ccc;
+
+}
+
+.chatsWindow::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.7);
+} 

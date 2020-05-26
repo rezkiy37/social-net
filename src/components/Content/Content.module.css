@@ -1,0 +1,29 @@
+.content {
+    height: 100%;
+
+    grid-area: content;
+
+    overflow: hidden;
+    
+    color: antiquewhite;
+    background-color: lightsalmon;
+}
+
+/* .content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #ccc;
+}
+
+.content::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #000;
+    border: 2px solid #ccc;
+
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.7);
+} */
