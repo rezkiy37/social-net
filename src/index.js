@@ -10,19 +10,33 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './components/App.jsx';
+import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 
 //mongodb+srv://rezkiy37:<password>@cinema-yo2f6.mongodb.net/test?retryWrites=true&w=majority
 
 
+const cache = new InMemoryCache();
+const link = new HttpLink({
+  uri: "http://localhost:3005/graphql"
+});
+
+const client = new ApolloClient({
+  cache,
+  link
+});
+
 //callSubscriber
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>,
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root'),
-);
+)
 
 
 
@@ -30,5 +44,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
 

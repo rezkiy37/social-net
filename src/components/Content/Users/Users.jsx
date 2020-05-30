@@ -3,6 +3,8 @@ import React from 'react'
 import * as axios from 'axios';
 //css
 import s from './Users.module.css'
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
 
 export const User = (props) => {
     return (
@@ -24,6 +26,11 @@ class Users extends React.Component {
 
                 this.props.loadUsers(response.data.items)
             })
+
+
+    }
+    componentWillUnmount() {
+
     }
 
     // componentDidUpdate() {
@@ -39,8 +46,27 @@ class Users extends React.Component {
     render() {
         return (
             <div>
-                {this.props.users}
+                <Query query={gql`
+                    {
+                        directors {
+                            name age
+                        }
+                    }
+                `}>
+                    {({ loading, error, data }) => {
+                        if (loading) return <p>Loading ...</p>;
+                        if (error) return <p>Error :(</p>;
+                        if (data) {
+                            console.log(data.directors);
+
+                            return <div>data{data.directors[0].name}</div>
+                        }
+
+
+                    }}
+                </Query>
             </div>
+
         )
     }
 }
