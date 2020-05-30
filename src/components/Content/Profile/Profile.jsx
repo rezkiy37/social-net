@@ -1,6 +1,7 @@
 import React from 'react';
 //css
 import s from './Profile.module.css';
+import * as axios from 'axios';
 
 //components
 export const Post = (props) => {
@@ -10,6 +11,22 @@ export const Post = (props) => {
 }
 
 class Profile extends React.Component {
+
+
+
+    // componentDidUpdate() {
+    //     axios.get("https://social-network.samuraijs.com/api/1.0/users")
+    //         .then(response => {
+    //             console.log(response.data);
+    //         })
+    // }
+
+    // componentWillUnmount() {
+    //     axios.get("https://social-network.samuraijs.com/api/1.0/users")
+    //         .then(response => {
+    //             console.log(response.data);
+    //         })
+    // }
 
     render() {
         //click on btn and textarea

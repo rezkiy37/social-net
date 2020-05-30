@@ -3,9 +3,9 @@ import React from 'react';
 import s from './App.module.css';
 //components
 import Header from './Header/Header';
-import NavBar from './NavBar/NavBar';
 import Content from './Content/Content';
 import Footer from './Footer/Footer';
+import NavBarContainer from './NavBar/NavBarContainer';
 
 
 class App extends React.Component {
@@ -13,13 +13,12 @@ class App extends React.Component {
         return (
             <div className={s.container}>
                 <Header />
-                <NavBar />
+                <NavBarContainer />
                 <Content />
                 <Footer />
             </div >
         )
     }
 }
-
 
 export default App;

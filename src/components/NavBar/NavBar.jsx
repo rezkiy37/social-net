@@ -5,29 +5,33 @@ import s from './NavBar.module.css'
 //components
 
 //component
-const Link = (props) => {
-    let path = props.path,
-        name = props.name,
-        commonClass = s.link,
-        activeClass = s.active;
+export const Link = (props) => {
+    let commonClass = s.link,
+        activeClass = s.active,
+        settingsClass = `${commonClass} ${s.settings}`;
 
-    return (
-        <NavLink to={path} className={commonClass} activeClassName={activeClass}>{name}</NavLink>
-    )
+    if (props.title === 'Settings') {
+        return (
+            <NavLink to={props.to} className={settingsClass} activeClassName={activeClass} > {props.title}</NavLink >
+        )
+    }
+    else {
+        return (
+            <NavLink to={props.to} className={commonClass} activeClassName={activeClass}>{props.title}</NavLink>
+        )
+    }
 }
 
 class NavBar extends React.Component {
     render() {
         return (
             <nav className={s.nav}>
-                <Link path='profile' name='Profile' />
-                <Link path='feed' name='Feed' />
-                <Link path='chats' name='Chats' />
-                <Link path='feedback' name='Feedback' />
-                <Link path='settings' name='Settings' />
+                {this.props.links}
             </nav>
         )
     }
 }
 
 export default NavBar;
+
+

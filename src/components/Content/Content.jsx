@@ -8,6 +8,7 @@ import Chats from './Chats/Chats';
 import Feedback from './Feedback/Feedback';
 import Settings from './Settings/Settings';
 import ProfileContainer from './Profile/ProfileContainer';
+import UsersContainer from './Users/UsersContainer';
 
 
 //component
@@ -17,6 +18,9 @@ class Content extends React.Component {
             <div className={s.content}>
                 <Route path='/profile'
                     render={() => <ProfileContainer />} />
+
+                <Route path='/users'
+                    render={() => <UsersContainer />} />
 
                 <Route path='/feed'
                     render={() => <Feed />} />

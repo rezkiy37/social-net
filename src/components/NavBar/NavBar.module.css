@@ -1,9 +1,13 @@
 .nav {
+    padding: 20px 10px;
+
     color: rgb(226, 217, 207);
     font-size: 20px;
 
     grid-area: navBar;
-    display: grid;
+    /* display: grid; */
+    display: flex;
+    flex-direction: column;
 
     background-color: orange;
 }
@@ -18,7 +22,15 @@
     outline: none;
 }
 
+.link:not(.settings) {
+    margin-bottom: 20px;
+}
+
 .link.active {
     color: lightgreen;
     font-size: 30px;
+}
+
+.link.settings {
+    margin-top: auto;
 }

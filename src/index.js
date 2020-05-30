@@ -11,6 +11,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './components/App.jsx';
 
+//mongodb+srv://rezkiy37:<password>@cinema-yo2f6.mongodb.net/test?retryWrites=true&w=majority
+
 
 //callSubscriber
 ReactDOM.render(
