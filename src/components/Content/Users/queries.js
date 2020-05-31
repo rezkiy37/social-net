@@ -1,4 +1,4 @@
 import gql from "graphql-tag";
 
 
-export const FETCH_CINEMA_QUERY = gql`{movies{name}}`
+export const FETCH_USERS = gql`{users{name, age, status, followed}}`
