@@ -1,10 +1,10 @@
 import React from 'react'
 //
-import * as axios from 'axios';
+//import * as axios from 'axios';
 //css
 import s from './Users.module.css'
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
+import { FETCH_USERS } from './queries';
 
 export const User = (props) => {
     return (
@@ -17,47 +17,45 @@ export const User = (props) => {
     )
 }
 
-export const GET_USERS = () => {
-    return (
-        <Query query={gql`
-                {
-                    users {
-                        name age status followed
-                    }
-                }
-            `}>
-            {({ loading, error, data }) => {
-                if (loading) return <p>Loading ...</p>;
-                if (error) return <p>Error :(</p>;
-                if (data) {
-                    console.log(data.users)
 
-                    return <div>data{data.users.map(user => <User name={user.name} age={user.age} status={user.status} followed={user.followed} />)}</div>
-                }
-            }}
-        </Query>
-    )
-}
+// const UserRender = ({ data: { loading, error, users } }) => {
+//     if (loading) {
+//         console.log(loading)
+//         return <p>Loading...</p>
+//     }
+//     if (error) {
+//         console.log(error)
+//         return <p>Error!</p>
+//     }
+//     if (users) {
+//         console.log(users)
+//         return <div>data{users.map(user => <User name={user.name} age={user.age} status={user.status} followed={user.followed} />)}</div>
+//     }
+// }
+
+//const UserData = graphql(FETCH_USERS)(UserRender)
+
 
 class Users extends React.Component {
 
     componentDidMount() {
         // axios.get("https://social-network.samuraijs.com/api/1.0/users")
         //     .then(response => {
-
-        //         console.log(response.data.items);
-
         //         this.props.loadUsers(response.data.items)
         //     })
+    }
+
+    constructor(props) {
+        super(props)
+        this.props.loadUsers(this.props.data)
     }
 
     render() {
         return (
             <div>
                 users
-                <GET_USERS />
+                {this.props.data}
             </div>
-
         )
     }
 }
